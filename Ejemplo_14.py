@@ -9,7 +9,7 @@ PURPOSE:
     It enables comparative analysis between forecast and observed conditions.
 
 CREATED BY:
-    Carla Barroso
+    Carla Barroso, EUMETSAT
     Last Updated: 2025-05-19
 
     A portion of this work used code generously provided by Brian Blaylock's 

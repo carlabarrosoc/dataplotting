@@ -8,7 +8,7 @@ PURPOSE:
     It plots weather station data including temperature, wind, and sky conditions.
 
 CREATED BY:
-    Carla Barroso
+    Carla Barroso, EUMETSAT
     Last Updated: 2025-05-19
 
     A portion of this work used code generously provided by Brian Blaylock's 
