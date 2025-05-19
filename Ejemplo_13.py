@@ -1,6 +1,36 @@
 """
-A portion of this work used code generously provided by Brian Blaylock's Carpenter Workshop python package (https://github.com/blaylockbk/Carpenter_Workshop)
+========================================================================
+METEOROLOGICAL DATA VISUALIZATION - EJEMPLO_13.PY
+========================================================================
+
+PURPOSE:
+    This script visualizes METAR station data for surface observations.
+    It plots weather station data including temperature, wind, and sky conditions.
+
+CREATED BY:
+    Carla Barroso
+    Last Updated: 2025-05-19
+
+    A portion of this work used code generously provided by Brian Blaylock's 
+    Carpenter Workshop python package (https://github.com/blaylockbk/Carpenter_Workshop)
+
+USAGE:
+    Run this script directly with Python:
+    $ python Ejemplo_13.py
+    
+    The script uses default parameters but these can be modified in the 
+    script execution section at the bottom of the file.
+
+REQUIRED LIBRARIES:
+    - cartopy: For geographical plotting
+    - matplotlib: For visualization
+    - metpy: For meteorological calculations and station plotting
+    - requests: For fetching METAR data
 """
+
+#===========================================================================
+# IMPORT LIBRARIES
+#===========================================================================
 
 import os
 import glob
@@ -21,8 +51,16 @@ from metpy.calc import reduce_point_density
 from netCDF4 import Dataset
 import requests
 
+#===========================================================================
+# MAP PROJECTION SETUP
+#===========================================================================
+
 pc = ccrs.PlateCarree()
 pc._threshold = 0.01  # https://github.com/SciTools/cartopy/issues/8
+
+#===========================================================================
+# MAP DRAWING CLASS
+#===========================================================================
 
 class EasyMap:
     """
@@ -837,11 +875,12 @@ class EasyMap:
         self.ax.adjust_extent(*args, **kwargs)
         return self
 
+#===========================================================================
+# MAIN PLOTTING FUNCTIONS
+#===========================================================================
+
 def plot_metar(date_metar, area, extent, radius, land_ocean, land_color, ocean_color, figsize):
   print(f'--------------------------------------------------------------------------------------------------------------------------------------')
-  #==================================================================================================================#
-  # DOWNLOAD AND PLOT METAR DATA
-  #==================================================================================================================#
 
   # start the time counter
   start_counter = time.time()
@@ -969,6 +1008,10 @@ def plot_metar(date_metar, area, extent, radius, land_ocean, land_color, ocean_c
 
   # return the image file name
   return img_file
+
+#===========================================================================
+# SCRIPT EXECUTION - CUSTOMIZE PARAMETERS HERE
+#===========================================================================
 
 plot_metar(date_metar='2025-05-13 12:00',
            area='custom',

@@ -1,6 +1,37 @@
 """
-A portion of this work used code generously provided by Brian Blaylock's Carpenter Workshop python package (https://github.com/blaylockbk/Carpenter_Workshop)
+========================================================================
+METEOROLOGICAL DATA VISUALIZATION - EJEMPLO_8.PY
+========================================================================
+
+PURPOSE:
+    This script visualizes numerical weather prediction (NWP) data.
+    It generates maps showing weather variables from models like ECMWF and GFS.
+
+CREATED BY:
+    Carla Barroso
+    Last Updated: 2025-05-19
+
+    A portion of this work used code generously provided by Brian Blaylock's 
+    Carpenter Workshop python package (https://github.com/blaylockbk/Carpenter_Workshop)
+
+USAGE:
+    Run this script directly with Python:
+    $ python Ejemplo_8.py
+    
+    The script uses default parameters but these can be modified in the 
+    script execution section at the bottom of the file.
+
+REQUIRED LIBRARIES:
+    - cartopy: For geographical plotting
+    - matplotlib: For visualization
+    - herbie: For accessing weather model data
+    - metpy: For meteorological calculations
+    - netCDF4: For reading data files
 """
+
+#===========================================================================
+# IMPORT LIBRARIES
+#===========================================================================
 
 import os
 import glob
@@ -19,8 +50,16 @@ from metpy.plots import current_weather, sky_cover, StationPlot
 from metpy.calc import reduce_point_density
 from netCDF4 import Dataset
 
+#===========================================================================
+# MAP PROJECTION SETUP
+#===========================================================================
+
 pc = ccrs.PlateCarree()
 pc._threshold = 0.01  # https://github.com/SciTools/cartopy/issues/8
+
+#===========================================================================
+# MAP DRAWING CLASS
+#===========================================================================
 
 class EasyMap:
     """
@@ -835,6 +874,10 @@ class EasyMap:
         self.ax.adjust_extent(*args, **kwargs)
         return self
 
+#===========================================================================
+# MAIN PLOTTING FUNCTIONS
+#===========================================================================
+
 def plot_nwp(model, product, date_nwp, area, extent, fxx, var, scale, offset, level_hpa, level_min, level_max, level_int, plot_type, contour_color, apply_cmap, cmap, view_clabel, fontsize, linewidth, linestyle, land_ocean, land_color, ocean_color, alpha, title, figsize):
 
     # start the time counter
@@ -1154,6 +1197,10 @@ def plot_nwp(model, product, date_nwp, area, extent, fxx, var, scale, offset, le
   
     # return the image file name
     return img_file
+
+#===========================================================================
+# SCRIPT EXECUTION - CUSTOMIZE PARAMETERS HERE
+#===========================================================================
 
 plot_nwp(model='ecmwf',
          product='oper',
