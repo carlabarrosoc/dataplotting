@@ -1,9 +1,9 @@
+#UNIDATA's THREDDS TDS is designed primarily for real-time and recent data access, not long-term archiving. Historical METAR archives are not retained long-term on this server- ~7 days (rolling)
+# main_displ_metar.py
 
-# main_displ_mslp.py
-
-# Mean Sea Level Pressure (MSLP) plotting using ECMWF data
+# 
 import argparse
-from Ejemplo_13 import plot_metar  # Make sure this file and function exist
+from src.Ejemplo_13 import plot_metar  # Make sure this file and function exist
 
 #def main():
 def main (date_metar,extent):
