@@ -3,7 +3,7 @@
 
 # Mean Sea Level Pressure (MSLP) plotting using ECMWF data
 import argparse
-from Ejemplo_12 import plot_nwp  # Make sure this file and function exist
+from src.Ejemplo_12 import plot_nwp  # Make sure this file and function exist
 
 #def main():
 def main (date_nwp,extent):
@@ -26,8 +26,6 @@ def main (date_nwp,extent):
         alpha=1.0, title='new',
         figsize=[15, 15])
 
-#if __name__ == "__main__":
-#    main()
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Plot MSLP using ECMWF data")
     parser.add_argument("--date_nwp", type=str, required=True, help="NWP date-time, e.g. '2023-11-01 12:00'")

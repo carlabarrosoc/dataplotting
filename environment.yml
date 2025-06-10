@@ -1,4 +1,4 @@
-name: casablanca
+name: nwp
 channels:
   - conda-forge
 dependencies:
@@ -96,4 +96,3 @@ dependencies:
       - tzdata==2025.2
       - urllib3==2.4.0
       - xarray==2025.4.0
-prefix: /home/jovyan/casablanca/casablanca

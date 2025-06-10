@@ -1,12 +1,10 @@
 
 # open ecmwf data available for download since January 21 2022 00:00 ('2022-01-21 00:00')
-# gfs data available for download since February 26 2021 00:00 ('2021-02-26 00:00')
-# gfs products: 'pgrb2.0p25', 'pgrb2.0p50', 'pgrb2.1p00'
 
 # geopotential height (500 hPa [4800~6000] and 300 hPa [8300~9700])
 
 import argparse
-from Ejemplo_8 import plot_nwp
+from src.Ejemplo_8 import plot_nwp
 
 
 def main (date_nwp,extent):
@@ -29,8 +27,6 @@ def main (date_nwp,extent):
          alpha=1.0, title='new',
          figsize=[15,15])
 
-#if __name__ == "__main__":
-#    main()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Plot MSLP using ECMWF data")
