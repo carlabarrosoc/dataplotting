@@ -1185,7 +1185,12 @@ def plot_nwp(model, product, date_nwp, area, extent, fxx, var, scale, offset, le
       plt.title(f"{ds.model.upper()}: {H.product_description}\nValid: {ds.valid_time.dt.strftime('%H:%M UTC %d %b %Y').item()}\n{variable_title}",loc='right')
   
     # save the image
-    img_file = f'output/{model}_{var}_{date_nwp.replace(" ", "_")}.png'
+    #img_file = f'output/{model}_{var}_{date_nwp.replace(" ", "_")}.png'
+    out_dir=os.path.join('output/'+model+'/'+var)
+    os.makedirs(out_dir, exist_ok=True)
+    img_file = f'output/{model}/{var}/{date_nwp[0:4]}-{date_nwp[5:7]}-{date_nwp[8:10]}T{date_nwp[11:13]}.{date_nwp[14:16]}.00Z.jpg'
+    
+    #img_file = f'output/{model}/{var}/{date_nwp.replace(" ", "_")}.png'
     plt.savefig(f'{img_file}', bbox_inches='tight', pad_inches=0, dpi=100)
   
     # show the image

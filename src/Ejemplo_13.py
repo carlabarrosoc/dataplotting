@@ -997,7 +997,11 @@ def plot_metar(date_metar, area, extent, radius, land_ocean, land_color, ocean_c
   ax.add_artist(text)
 
   # save the image
-  img_file = f'output/metar_{date_metar.replace(" ", "_")}.png'
+  #img_file = f'output/metar_{date_metar.replace(" ", "_")}.png'
+  out_dir=os.path.join('output/metar/')
+  os.makedirs(out_dir, exist_ok=True)
+  img_file = f'output/metar/{date_metar[0:4]}-{date_metar[5:7]}-{date_metar[8:10]}T{date_metar[11:13]}.{date_metar[14:16]}.00Z.jpg'
+      
   plt.savefig(f'{img_file}', bbox_inches='tight', pad_inches=0, dpi=100)
 
   # show the image
